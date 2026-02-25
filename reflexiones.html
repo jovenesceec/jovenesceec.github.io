@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reflexiones - Jóvenes CEEC | Devocionales y Artículos Cristianos</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Blog de reflexiones, devocionales y artículos cristianos para jóvenes. Contenido para fortalecer tu fe y caminar con Cristo día a día.">
+    <meta name="keywords" content="devocionales cristianos, reflexiones bíblicas, artículos fe, blog cristiano jóvenes, enseñanza bíblica, crecimiento espiritual">
+    <meta name="author" content="Jóvenes CEEC">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Reflexiones - Jóvenes CEEC">
+    <meta property="og:description" content="Devocionales y artículos para tu crecimiento espiritual">
+    
+    <!-- Canonical -->
+    <link rel="canonical" href="https://jovenesceec.com/reflexiones">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #FF6B35;
+            --secondary: #4ECDC4;
+            --accent: #FFE66D;
+            --dark: #2D3142;
+            --light: #F8F9FA;
+            --purple: #9B59B6;
+            --blue: #3498DB;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark);
+            background: var(--light);
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Header */
+        .page-header {
+            background: linear-gradient(135deg, var(--primary), var(--purple));
+            color: white;
+            padding: 5rem 2rem 3rem;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Filter Tabs */
+        .filter-tabs {
+            max-width: 1200px;
+            margin: -2rem auto 3rem;
+            padding: 0 2rem;
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: white;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+        }
+
+        /* Blog Grid */
+        .blog-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .blog-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .blog-image {
+            height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .blog-image::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: linear-gradient(to top, rgba(0,0,0,0.3), transparent);
+        }
+
+        .blog-content {
+            padding: 2rem;
+        }
+
+        .blog-category {
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .category-devocional {
+            background: rgba(255,107,53,0.1);
+            color: var(--primary);
+        }
+
+        .category-reflexion {
+            background: rgba(78,205,196,0.1);
+            color: var(--secondary);
+        }
+
+        .category-testimonio {
+            background: rgba(155,89,182,0.1);
+            color: var(--purple);
+        }
+
+        .category-ensenanza {
+            background: rgba(52,152,219,0.1);
+            color: var(--blue);
+        }
+
+        .blog-card h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .blog-excerpt {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .blog-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--secondary), var(--blue));
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .cta-section h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-white {
+            background: white;
+            color: var(--secondary);
+        }
+
+        .btn-white:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        footer p {
+            opacity: 0.8;
+        }
+
+        footer a {
+            color: var(--secondary);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Jóvenes CEEC</a>
+            <ul class="nav-links">
+                <li><a href="index.html#inicio">Inicio</a></li>
+                <li><a href="index.html#actividades">Actividades</a></li>
+                <li><a href="index.html#tematicas">Qué Estamos Viendo</a></li>
+                <li><a href="reflexiones.html" style="color: var(--primary);">Reflexiones</a></li>
+                <li><a href="index.html#contacto">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <h1>Reflexiones para la Vida</h1>
+        <p>Devocionales, testimonios y enseñanzas para fortalecer tu fe y caminar con Cristo cada día</p>
+    </header>
+
+    <!-- Filter Tabs -->
+    <div class="filter-tabs">
+        <button class="filter-btn active" onclick="filterPosts('todos')">Todos</button>
+        <button class="filter-btn" onclick="filterPosts('devocional')">Devocionales</button>
+        <button class="filter-btn" onclick="filterPosts('reflexion')">Reflexiones</button>
+        <button class="filter-btn" onclick="filterPosts('testimonio')">Testimonios</button>
+        <button class="filter-btn" onclick="filterPosts('ensenanza')">Enseñanza</button>
+    </div>
+
+    <!-- Blog Grid -->
+    <div class="blog-container">
+        <div class="blog-grid" id="blogGrid">
+            <!-- Post 1 -->
+            <a href="#" class="blog-card" data-category="devocional">
+                <div class="blog-image" style="background: linear-gradient(135deg, var(--primary), var(--secondary));">
+                    ✍️
+                </div>
+                <div class="blog-content">
+                    <span class="blog-category category-devocional">DEVOCIONAL</span>
+                    <h3>Encontrando Paz en la Tormenta</h3>
+                    <p class="blog-excerpt">
+                        Cuando las dificultades nos rodean, es fácil perder la paz. Pero Dios nos promete estar con nosotros en medio de cualquier situación...
+                    </p>
+                    <div class="blog-meta">
+                        <span>📅 25 Feb 2025</span>
+                        <span>⏱️ 5 min</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Post 2 -->
+            <a href="#" class="blog-card" data-category="reflexion">
+                <div class="blog-image" style="background: linear-gradient(135deg, var(--secondary), var(--blue));">
+                    💡
+                </div>
+                <div class="blog-content">
+                    <span class="blog-category category-reflexion">REFLEXIÓN</span>
+                    <h3>El Propósito de las Pruebas</h3>
+                    <p class="blog-excerpt">
+                        ¿Por qué Dios permite que pasemos por dificultades? Una reflexión sobre cómo las pruebas fortalecen nuestra fe...
+                    </p>
+                    <div class="blog-meta">
+                        <span>📅 20 Feb 2025</span>
+                        <span>⏱️ 4 min</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Post 3 -->
+            <a href="#" class="blog-card" data-category="testimonio">
+                <div class="blog-image" style="background: linear-gradient(135deg, var(--purple), var(--accent));">
+                    🙏
+                </div>
+                <div class="blog-content">
+                    <span class="blog-category category-testimonio">TESTIMONIO</span>
+                    <h3>Cómo Dios Transformó Mi Vida</h3>
+                    <p class="blog-excerpt">
+                        Mi historia de cómo conocí a Jesús y cómo Él cambió completamente mi perspectiva y mi camino...
+                    </p>
+                    <div class="blog-meta">
+                        <span>📅 15 Feb 2025</span>
+                        <span>⏱️ 6 min</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Post 4 -->
+            <a href="#" class="blog-card" data-category="ensenanza">
+                <div class="blog-image" style="background: linear-gradient(135deg, var(--blue), var(--purple));">
+                    📖
+                </div>
+                <div class="blog-content">
+                    <span class="blog-category category-ensenanza">ENSEÑANZA</span>
+                    <h3>Entendiendo la Gracia de Dios</h3>
+                    <p class="blog-excerpt">
+                        La gracia es uno de los conceptos más hermosos y liberadores del cristianismo. Veamos qué significa realmente...
+                    </p>
+                    <div class="blog-meta">
+                        <span>📅 10 Feb 2025</span>
+                        <span>⏱️ 8 min</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Post 5 -->
+            <a href="#" class="blog-card" data-category="devocional">
+                <div class="blog-image" style="background: linear-gradient(135deg, var(--accent), var(--primary));">
+                    ⭐
+                </div>
+                <div class="blog-content">
+                    <span class="blog-category category-devocional">DEVOCIONAL</span>
+                    <h3>La Oración que Cambia Todo</h3>
+                    <p class="blog-excerpt">
+                        Descubre el poder de una vida de oración constante y cómo puede transformar tu relación con Dios...
+                    </p>
+                    <div class="blog-meta">
+                        <span>📅 5 Feb 2025</span>
+                        <span>⏱️ 5 min</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Post 6 -->
+            <a href="#" class="blog-card" data-category="reflexion">
+                <div class="blog-image" style="background: linear-gradient(135deg, var(--primary), var(--purple));">
+                    🌟
+                </div>
+                <div class="blog-content">
+                    <span class="blog-category category-reflexion">REFLEXIÓN</span>
+                    <h3>Ser Luz en las Redes Sociales</h3>
+                    <p class="blog-excerpt">
+                        ¿Cómo podemos honrar a Dios en nuestras redes? Reflexiones sobre ser testimonio en el mundo digital...
+                    </p>
+                    <div class="blog-meta">
+                        <span>📅 1 Feb 2025</span>
+                        <span>⏱️ 4 min</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>¿Querés escribir para el blog?</h2>
+        <p>Si tenés un testimonio, reflexión o devocional que te gustaría compartir,<br>nos encantaría escucharte.</p>
+        <a href="index.html#contacto" class="btn btn-white">Contactanos</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Jóvenes CEEC - Todos los derechos reservados</p>
+        <p style="margin-top: 1rem;"><a href="index.html">Volver al inicio</a> | <a href="index.html#contacto">Contacto</a></p>
+    </footer>
+
+    <script>
+        function filterPosts(category) {
+            const posts = document.querySelectorAll('.blog-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+            
+            // Update active button
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Filter posts
+            posts.forEach(post => {
+                if (category === 'todos' || post.dataset.category === category) {
+                    post.style.display = 'block';
+                    setTimeout(() => {
+                        post.style.opacity = '1';
+                        post.style.transform = 'translateY(0)';
+                    }, 10);
+                } else {
+                    post.style.opacity = '0';
+                    post.style.transform = 'translateY(20px)';
+                    setTimeout(() => {
+                        post.style.display = 'none';
+                    }, 300);
+                }
+            });
+        }
+
+        // Add smooth transitions
+        document.querySelectorAll('.blog-card').forEach(card => {
+            card.style.transition = 'all 0.3s ease';
+        });
+    </script>
+</body>
+</html>
